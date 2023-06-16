@@ -39,7 +39,7 @@ body {
   grid-gap: 10px;
 }
 
-.cancel {
+.clear {
   grid-column: span 2;
 }
 .equals {
