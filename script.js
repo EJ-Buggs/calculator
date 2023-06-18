@@ -6,11 +6,12 @@ let operators = document.querySelectorAll(".operator");
 let op = "";
 let c = "";
 let p = "";
+let thing = true;
 
 const clear = function () {
   c = 0;
   p = 0;
-  current.textContent = "";
+  current.textContent = "0";
   previous.textContent = "";
 };
 
@@ -18,23 +19,25 @@ document.querySelector(".clear").addEventListener("click", clear);
 
 number.forEach(function (number) {
   number.addEventListener("click", function () {
+    current.textContent == "0" ? (current.textContent = "") : null;
     current.textContent += number.textContent;
   });
 });
 
 const operate = function () {
-  previous.textContent = current.textContent;
-  current.textContent = "";
+  console.log(p, c);
   op = this.textContent;
+  thing == true ? (c = Number(current.textContent)) : (thing = true);
+  previous.textContent += current.textContent + op;
+  p == 0 ? (p = Number(current.textContent)) : calculate();
+  current.textContent = "";
 };
 
 operators.forEach(function (operators) {
   operators.addEventListener("click", operate);
 });
 
-const equals = function () {
-  c = Number(current.textContent);
-  p = Number(previous.textContent);
+const calculate = function () {
   if (op == "+") {
     p += c;
   } else if (op == "-") {
@@ -44,9 +47,18 @@ const equals = function () {
   } else if (op == "/") {
     p /= c;
   }
-
   current.textContent = p;
-  previous.textContent = "";
+};
+
+const equals = function () {
+  if (thing == true) {
+    c = Number(current.textContent);
+    previous.textContent += current.textContent + " =";
+  }
+  thing = false;
+  calculate();
+  previous.textContent = `${p} + ${c} =`;
+  console.log(p, c);
 };
 
 document.querySelector(".equals").addEventListener("click", equals);
