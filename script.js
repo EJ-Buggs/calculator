@@ -69,12 +69,21 @@ const calculate = function () {
   } else if (op2 == "x") {
     p *= c;
   } else if (op2 == "/") {
+    if (c == 0) {
+      alert("To infinity and beyond!");
+      clear();
+      return;
+    }
     p /= c;
   }
   current.textContent = p;
 };
 
 const equals = function () {
+  if (current.textContent == 0) {
+    clear();
+    return;
+  }
   if (thing == true) {
     c = Number(current.textContent);
     thing = false;
