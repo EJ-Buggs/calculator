@@ -2,13 +2,17 @@ body {
   display: flex;
   justify-content: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: rgb(39, 38, 38);
+  color: seashell;
 }
 
 .container {
   width: 350px;
   height: 550px;
   padding: 10px;
-  border: solid blue;
+  border: solid rgb(108, 103, 99);
+  border-radius: 20px;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +27,7 @@ body {
   height: 100px;
   width: 300px;
   margin: 20px;
-  background-color: red;
+  background-color: rgb(39, 38, 38);
   border-radius: 10%;
 }
 
@@ -47,5 +51,16 @@ body {
 }
 
 button {
+  border: solid seashell;
+  background-color: rgb(39, 38, 38);
+  color: seashell;
   border-radius: 50px;
+}
+
+button:hover {
+  background-color: rgb(80, 77, 77);
+}
+
+button:active {
+  background-color: rgb(129, 124, 124);
 }
